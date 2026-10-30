@@ -1,0 +1,41 @@
+{
+  "name": "mcp-sql-explorer",
+  "version": "0.1.0",
+  "description": "MCP server that gives LLM clients safe, read-only access to a SQLite database.",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "mcp-sql-explorer": "dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.test.json --noEmit",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "start": "node dist/index.js",
+    "demo:db": "tsx src/demo/cli.ts data/music-store.db",
+    "smoke": "node scripts/smoke.mjs data/music-store.db"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/server": "2.4.0",
+    "better-sqlite3": "13.0.3",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@modelcontextprotocol/client": "2.4.0",
+    "@types/better-sqlite3": "9.6.0",
+    "@types/node": "22.20.5",
+    "eslint": "10.13.0",
+    "tsx": "4.23.15",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.72.1",
+    "vitest": "4.1.12"
+  }
+}
